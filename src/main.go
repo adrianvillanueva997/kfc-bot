@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	load_env()
+	_ = godotenv.Load()
 	token := os.Getenv("bot_key")
 	if token == "" {
 		log.Fatalln("Bot key not valid!")
@@ -19,11 +19,4 @@ func main() {
 		c.HasPrefix = bot.NewPrefix("!")
 		return nil
 	})
-}
-
-func load_env() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalln("Error loading .env file")
-	}
 }
