@@ -2,7 +2,7 @@ version: "3"
 services:
   bot:
     image: adrianvillanueva997/discordbot_kfc:latest
-    container_name: telegram_deficiente
+    container_name: discordbot_kfc
     restart: unless-stopped
     env_file:
       - .env
