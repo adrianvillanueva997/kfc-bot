@@ -16,7 +16,7 @@ func main() {
 		log.Fatalln("Bot key not valid!")
 	}
 	bot.Run(token, &commands.Bot{}, func(c *bot.Context) error {
-		c.HasPrefix = bot.NewPrefix("!")
+		c.HasPrefix = bot.NewPrefix("$")
 		return nil
 	})
 }
