@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container: golang:alpine
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
       - run: |
           apk add --no-cache make
           make fmt
@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     container: securego/gosec:latest
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
       - run: |
           apk add --no-cache make
           make sec
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     container: golangci/golangci-lint:latest-alpine
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
       - run: |
           apk add --no-cache make
           make lint
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     container: hadolint/hadolint:latest-alpine
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
       - run: |
           apk add --no-cache make
           make docker-lint
@@ -50,12 +50,12 @@ jobs:
     container:
       image: golang
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
       - name: Install & Tests
         run: |
           go mod download
       - name: Checkout repository
-        uses: actions/checkout@v2.3.5
+        uses: actions/checkout@v2.4.0
         with:
           # Must fetch at least the immediate parents so that if this is
           # a pull request then we can checkout the head of the pull request.
@@ -80,7 +80,7 @@ jobs:
     needs: [security-check, lint, gosec, golangci-lint, docker-lint]
     steps:
       - name: Set up CD
-        uses: actions/checkout@v2.3.5
+        uses: actions/checkout@v2.4.0
       - name: Set up Docker Qemu
         uses: docker/setup-qemu-action@v1.2.0
       - name: Setup Docker Buildx
